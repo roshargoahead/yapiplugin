@@ -4,7 +4,6 @@ import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
-import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -15,7 +14,6 @@ import org.jetbrains.annotations.Nullable;
  * @version 1.0.0
  * @since 2018/07/18 09:33
  */
-@Data
 @State(name = "EasyCodeSetting", storages = @Storage("easy-code-setting.xml"))
 public class Settings implements PersistentStateComponent<Settings> {
 
@@ -61,5 +59,21 @@ public class Settings implements PersistentStateComponent<Settings> {
     @Override
     public void loadState(@NotNull Settings settings) {
 
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 }

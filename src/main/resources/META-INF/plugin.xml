@@ -17,11 +17,12 @@
     <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="org.intellij.sdk.settings.AppSettingsState"/>
-        <intentionAction>
-            <className>com.inheritech.it.action.GenerateApiAction</className>
-        </intentionAction>
+        <toolWindow factoryClass="com.inheritech.it.factory.FileSearchToolWindow"
+                    id="FileSearch"
+                    canCloseContents="true"
+                    anchor="bottom"/>
     </extensions>
+
 
     <actions>
         <!-- Add your actions here -->
@@ -30,6 +31,11 @@
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <add-to-group group-id="GenerateGroup" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl D"/>
+        </action>
+        <action id="com.inheritech.search" class="com.inheritech.it.action.SearchAction" text="Search File"
+                description="111">
+            <keyboard-shortcut keymap="$default" first-keystroke="Alt Y"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>
